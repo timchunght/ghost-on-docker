@@ -24,7 +24,7 @@ config = {
 
   // Production (Heroku)
   production: {
-    url: process.env.HEROKU_URL,
+    url: "http://www.timchung.me",
     mail: {
       transport: 'SMTP',
       host: 'smtp.mandrillapp.com',
