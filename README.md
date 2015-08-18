@@ -6,7 +6,42 @@ Ghost is a free, open, simple blogging platform. Visit the project's website at 
 
 To get your own Ghost blog running on Docker, follow this guide
 
+First, copy the ``sample.env`` file and rename it as ``production.env``
 
+	cp sample.env production.env
+
+Fill in environment variables in the production.env file
+
+All the postgres fields are ``required``:
+
+	POSTGRES_HOST=myhost
+	POSTGRES_PORT=myport
+	POSTGRES_USER=myuser
+	POSTGRES_PASSWORD=mypassword
+	POSTGRES_DB=mydbname
+
+The S3 and Mandrill keys are optional (you should setup Mandrill since it is Free)
+
+	S3_ACCESS_KEY_ID=mystringofaccesskey
+	S3_ACCESS_SECRET_KEY=mystringofsecretkey
+	S3_BUCKET_NAME=mybucketname
+	MANDRILL_USERNAME=mymandrillusername
+	MANDRILL_APIKEY=myapikey
+
+Now, it is the moment of truth. Run:
+	
+	docker-compose build
+	docker-compose up
+
+Go to your host ip (your VPS ip) or ``boot2docker ip`` if you are on Mac
+
+Your blog will be accessable at ``yourip:8080``
+
+Vola, you are done!
+
+TODOs
+---
+Create ``db`` container linking
 
 ### Things you should know
 
