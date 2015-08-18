@@ -40,12 +40,20 @@ config = {
     storage: storage,
     database: {
       client: 'postgres',
-      connection: process.env.DATABASE_URL,
+      connection: "",
+      connection: {
+        host     : process.env.POSTGRES_HOST,
+        port     : process.env.POSTGRES_PORT,
+        user     : process.env.POSTGRES_USER,
+        password : process.env.POSTGRES_PASSWORD,
+        database : process.env.POSTGRES_DB,
+        ssl      : true
+      },
       debug: false
     },
     server: {
       host: '0.0.0.0',
-      port: process.env.PORT
+      port: '8080'
     },
     paths: {
       contentPath: path.join(__dirname, '/content/')
