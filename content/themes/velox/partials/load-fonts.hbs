@@ -1,0 +1,15 @@
+<script>
+  var cb = function() {
+    var createLink = function(source) {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = source;
+      var h = document.getElementsByTagName('head')[0]; h.appendChild(l, h);
+    };
+    createLink('//fonts.googleapis.com/css?family=Merriweather:300,400,700%7CRaleway:300,700,800,900');
+    createLink('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+  };
+
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) { raf(cb); } else { window.addEventListener('load', cb); }
+</script>
